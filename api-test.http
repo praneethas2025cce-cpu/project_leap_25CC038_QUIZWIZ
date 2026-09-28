@@ -1,0 +1,60 @@
+POST http://localhost:8080/api/questions
+Content-Type: application/json
+
+{
+  "questionText": "Which keyword is used to create an object in Java?",
+  "optionA": "class",
+  "optionB": "new",
+  "optionC": "this",
+  "optionD": "static",
+  "correctOption": "B",
+  "quiz": {
+    "id": 2
+  }
+}
+
+###
+
+POST http://localhost:8080/api/attempts/start?studentId=3&quizId=2
+
+###
+
+
+POST http://localhost:8080/api/attempts/2/submit
+Content-Type: application/json
+
+{
+  "answers": {
+    "2": "B"
+  }
+}
+
+###
+
+POST http://localhost:8080/api/students
+Content-Type: application/json
+
+{
+  "name": "Score Test Student",
+  "email": "scoretest@test.com"
+}
+
+###
+
+POST http://localhost:8080/api/attempts/start?studentId=4&quizId=2
+
+###
+
+POST http://localhost:8080/api/attempts/3/submit
+Content-Type: application/json
+
+{
+  "2": "B"
+}
+
+###
+
+GET http://localhost:8080/api/questions/quiz/2
+
+###
+GET http://localhost:8080/api/attempts/quiz/2
